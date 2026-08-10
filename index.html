@@ -296,13 +296,13 @@
   a.vote-btn:hover { opacity: 0.88; }
   a.vote-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  /* ---------- Scoreboard (costs) ---------- */
-  table.scoreboard {
+  /* ---------- Expenses (costs) ---------- */
+  table.expenses {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
   }
-  table.scoreboard th {
+  table.expenses th {
     text-align: left;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     font-size: 10.5px;
@@ -313,12 +313,12 @@
     padding-bottom: 8px;
     border-bottom: 2px solid var(--ink);
   }
-  table.scoreboard th.num, table.scoreboard td.num { text-align: right; }
-  table.scoreboard td {
+  table.expenses th.num, table.expenses td.num { text-align: right; }
+  table.expenses td {
     padding: 9px 0;
     border-bottom: 1px solid var(--line);
   }
-  table.scoreboard tr.total th, table.scoreboard tr.total td {
+  table.expenses tr.total th, table.expenses tr.total td {
     border-bottom: none;
     border-top: 2px solid var(--ink);
     padding-top: 12px;
@@ -547,11 +547,11 @@
   <!-- COSTS -->
   <section class="day" id="costs">
     <div class="day-head">
-      <h2 class="display weekday">The Scoreboard</h2>
+      <h2 class="display weekday">Expenses</h2>
       <span class="datenum mono">costs so far</span>
     </div>
     <div class="scroll-x">
-      <table class="scoreboard">
+      <table class="expenses">
         <thead>
           <tr><th>Item</th><th class="num">Amount</th></tr>
         </thead>
@@ -565,9 +565,5 @@
       </table>
     </div>
   </section>
-
-  <footer>
-    Full notes and the running costs live in the <a href="https://docs.google.com/document/d/1ShG7b66AmMa0THDTVb373a5M-De-ZE2HHtoLxg0fYgs/edit" target="_blank" rel="noopener">Stag Planning doc</a>. Once something above gets a group vote, ping Josh and it'll get locked in here.
-  </footer>
 
 </div>
