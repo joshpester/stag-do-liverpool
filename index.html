@@ -6,13 +6,9 @@
     --ink: #1B241E;
     --ink-soft: #52594C;
     --accent: #A66A14;
-    --accent-fill: #C98A2A;
     --line: rgba(27, 36, 30, 0.16);
     --open: #9C3B2E;
-    --open-bg: rgba(156, 59, 46, 0.08);
     --locked: #3F6B4A;
-    --locked-bg: rgba(63, 107, 74, 0.09);
-    --shadow: 0 1px 0 rgba(27, 36, 30, 0.06);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -22,13 +18,9 @@
       --ink: #EDE6D2;
       --ink-soft: #A8AE9C;
       --accent: #E3A94A;
-      --accent-fill: #E3A94A;
       --line: rgba(237, 230, 210, 0.16);
       --open: #E2695A;
-      --open-bg: rgba(226, 105, 90, 0.12);
       --locked: #6FA97C;
-      --locked-bg: rgba(111, 169, 124, 0.12);
-      --shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
     }
   }
   :root[data-theme="dark"] {
@@ -37,13 +29,9 @@
     --ink: #EDE6D2;
     --ink-soft: #A8AE9C;
     --accent: #E3A94A;
-    --accent-fill: #E3A94A;
     --line: rgba(237, 230, 210, 0.16);
     --open: #E2695A;
-    --open-bg: rgba(226, 105, 90, 0.12);
     --locked: #6FA97C;
-    --locked-bg: rgba(111, 169, 124, 0.12);
-    --shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
   }
   :root[data-theme="light"] {
     --paper: #EDE6D2;
@@ -51,13 +39,9 @@
     --ink: #1B241E;
     --ink-soft: #52594C;
     --accent: #A66A14;
-    --accent-fill: #C98A2A;
     --line: rgba(27, 36, 30, 0.16);
     --open: #9C3B2E;
-    --open-bg: rgba(156, 59, 46, 0.08);
     --locked: #3F6B4A;
-    --locked-bg: rgba(63, 107, 74, 0.09);
-    --shadow: 0 1px 0 rgba(27, 36, 30, 0.06);
   }
 
   * { box-sizing: border-box; }
@@ -86,6 +70,12 @@
   }
 
   a { color: inherit; }
+  a.ext {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a.ext:hover { text-decoration: underline; }
 
   .wrap {
     max-width: 640px;
@@ -173,7 +163,7 @@
     color: var(--ink-soft);
   }
 
-  /* ---------- Locked plan rows ---------- */
+  /* ---------- Plan rows ---------- */
   .plan-row {
     display: grid;
     grid-template-columns: 74px 1fr;
@@ -198,20 +188,6 @@
     color: var(--ink-soft);
     font-size: 14px;
   }
-  .status-chip {
-    display: inline-block;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 2px;
-    margin-left: 8px;
-    vertical-align: 2px;
-  }
-  .status-chip.locked { background: var(--locked-bg); color: var(--locked); }
-  .status-chip.open { background: var(--open-bg); color: var(--open); }
 
   /* ---------- Decision blocks ---------- */
   .decision {
@@ -256,26 +232,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     font-weight: 700;
     font-size: 14.5px;
-    margin: 0 0 4px;
-  }
-  .option .desc {
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    margin: 0 0 8px;
-    line-height: 1.45;
-  }
-  .option .meta {
-    font-size: 11.5px;
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .option .meta .book {
-    color: var(--ink-soft);
-    font-weight: 500;
-    text-align: right;
+    margin: 0;
   }
 
   a.vote-btn {
@@ -295,49 +252,6 @@
   }
   a.vote-btn:hover { opacity: 0.88; }
   a.vote-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-  /* ---------- Expenses (costs) ---------- */
-  table.expenses {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-  table.expenses th {
-    text-align: left;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    font-weight: 700;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--ink);
-  }
-  table.expenses th.num, table.expenses td.num { text-align: right; }
-  table.expenses td {
-    padding: 9px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  table.expenses tr.total th, table.expenses tr.total td {
-    border-bottom: none;
-    border-top: 2px solid var(--ink);
-    padding-top: 12px;
-    font-weight: 700;
-    color: var(--accent);
-    font-size: 15.5px;
-  }
-  .scroll-x { overflow-x: auto; }
-
-  /* ---------- Footer ---------- */
-  footer {
-    margin-top: 56px;
-    padding-top: 18px;
-    border-top: 3px solid var(--ink);
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  footer a { color: var(--accent); font-weight: 600; text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
 
   @media (prefers-reduced-motion: no-preference) {
     section.day { animation: rise 0.5s ease-out both; }
@@ -362,6 +276,9 @@
       <span class="mono">Wed 9th &ndash; Sun 13th</span>
       <span class="mono">16 lads</span>
     </div>
+    <div class="masthead-meta" style="margin-top: 8px;">
+      <span>Staying at the <a class="ext" href="https://www.airbnb.co.uk/trips/v1/1658080687376893994/ro/RESERVATION2_CHECKIN/HMZCNBXW9F" target="_blank" rel="noopener">AirBnB &rarr;</a></span>
+    </div>
   </header>
 
   <nav class="daynav">
@@ -370,7 +287,6 @@
     <a href="#fri">Fri</a>
     <a href="#sat">Sat</a>
     <a href="#sun">Sun</a>
-    <a href="#costs">Costs</a>
   </nav>
 
   <!-- WEDNESDAY -->
@@ -382,7 +298,7 @@
     <div class="plan-row">
       <div class="time mono">3:00 PM</div>
       <div class="what">
-        <strong>Check-in <span class="status-chip locked">Locked in</span></strong>
+        <strong>Check-in</strong>
         <span class="sub">45 Seymour Street</span>
       </div>
     </div>
@@ -397,32 +313,16 @@
     <div class="plan-row">
       <div class="time mono">10:00 AM</div>
       <div class="what">
-        <strong>Breakfast <span class="status-chip locked">Locked in</span></strong>
-        <span class="sub">Shiraz Palace</span>
+        <strong>Breakfast</strong>
+        <span class="sub"><a class="ext" href="https://shirazpalace.co.uk/" target="_blank" rel="noopener">Shiraz Palace &rarr;</a></span>
       </div>
     </div>
-
-    <div class="decision">
-      <div class="decision-head"><h3>Pub crawl</h3><span class="status-chip open">Still open</span></div>
-      <p class="hint">Guided and paid, or free and self-run &mdash; group calls it.</p>
-      <div class="options">
-        <div class="option">
-          <p class="venue">The Stag Company</p>
-          <p class="desc">Fully hosted bar crawl through the city centre &mdash; welcome shot, bar games, a rep running the show.</p>
-          <div class="meta"><span>Booking required</span><span class="book">thestagcompany.com</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">Stagmadness</p>
-          <p class="desc">Three venues plus VIP club entry at the end of the night, shot and games included.</p>
-          <div class="meta"><span>Booking required</span><span class="book">rds.stagmadness.com</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">Self-guided: Concert Square</p>
-          <p class="desc">Pogue Mahone's &rarr; Around the World &rarr; Blackhouse &rarr; McCooley's &rarr; Alma de Cuba. No booking, no schedule.</p>
-          <div class="meta"><span>Free to plan</span><span class="book">turn up &amp; go</span></div>
-        </div>
+    <div class="plan-row">
+      <div class="time mono">Evening</div>
+      <div class="what">
+        <strong>Pub crawl</strong>
+        <span class="sub">Route TBD &mdash; being sorted ahead of time, not a group vote</span>
       </div>
-      <a class="vote-btn" href="https://chat.whatsapp.com/REPLACE-WITH-YOUR-GROUP-LINK">Vote in the group chat &rarr;</a>
     </div>
   </section>
 
@@ -434,52 +334,23 @@
     </div>
 
     <div class="decision">
-      <div class="decision-head"><h3>Daytime</h3><span class="status-chip open">Still open</span></div>
-      <p class="hint">Pick one &mdash; or split into two groups if it's close.</p>
+      <div class="decision-head"><h3>Daytime</h3></div>
+      <p class="hint">Still rough options &mdash; specifics to follow once it's picked.</p>
       <div class="options">
-        <div class="option">
-          <p class="venue">Magical Mystery Tour</p>
-          <p class="desc">Two-hour coach tour of Beatles landmarks, drops you at the Cavern Club to finish.</p>
-          <div class="meta"><span>~&pound;22pp &middot; book ahead</span><span class="book">mmtliverpool.com</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">The Beatles Story</p>
-          <p class="desc">Self-paced museum at Albert Dock, ~90 minutes. Group rates for 10+.</p>
-          <div class="meta"><span>~&pound;19pp</span><span class="book">beatlesstory.com</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">Formby hike</p>
-          <p class="desc">Coastal pine woods, dunes, red squirrels. ~30 min out on the train, walk it at your own pace.</p>
-          <div class="meta"><span>Free &middot; no booking</span><span class="book">Formby / Freshfield stn</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">Go-karting or axe throwing</p>
-          <p class="desc">TeamSport (near Liverpool ONE) or Boom Battle Bar / Hatchet Harry's for axes &mdash; both good for a loud group.</p>
-          <div class="meta"><span>~&pound;30&ndash;40pp</span><span class="book">pre-book the lane</span></div>
-        </div>
+        <div class="option"><p class="venue">Beatles tour</p></div>
+        <div class="option"><p class="venue">Hike</p></div>
+        <div class="option"><p class="venue">Something else, TBD</p></div>
       </div>
       <a class="vote-btn" href="https://chat.whatsapp.com/REPLACE-WITH-YOUR-GROUP-LINK">Vote in the group chat &rarr;</a>
     </div>
 
     <div class="decision">
-      <div class="decision-head"><h3>Dinner</h3><span class="status-chip open">Still open</span></div>
-      <p class="hint">All three take groups of 16 &mdash; just need advance notice.</p>
+      <div class="decision-head"><h3>Dinner</h3></div>
+      <p class="hint">Still rough options &mdash; venue to follow once it's picked.</p>
       <div class="options">
-        <div class="option">
-          <p class="venue">Bem Brasil</p>
-          <p class="desc">Brazilian rodizio, all-you-can-eat. Groups of 13+ have to email ahead.</p>
-          <div class="meta"><span>~&pound;35&ndash;45pp</span><span class="book">email required</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">Restaurant Bar &amp; Grill</p>
-          <p class="desc">Steaks and British classics, private dining room that fits up to 20.</p>
-          <div class="meta"><span>~&pound;30&ndash;40pp</span><span class="book">call ahead</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">DeLuca's &mdash; The Deck</p>
-          <p class="desc">Glass terrace overlooking Concert Square, built for stag groups, drinks packages available.</p>
-          <div class="meta"><span>~&pound;25&ndash;35pp</span><span class="book">call ahead</span></div>
-        </div>
+        <div class="option"><p class="venue">Steakhouse</p></div>
+        <div class="option"><p class="venue">Brazilian BBQ</p></div>
+        <div class="option"><p class="venue">Something else, TBD</p></div>
       </div>
       <a class="vote-btn" href="https://chat.whatsapp.com/REPLACE-WITH-YOUR-GROUP-LINK">Vote in the group chat &rarr;</a>
     </div>
@@ -494,38 +365,23 @@
     <div class="plan-row">
       <div class="time mono">Daytime</div>
       <div class="what">
-        <strong>The Sandon <span class="status-chip locked">Locked in</span></strong>
+        <strong>The Sandon</strong>
+        <span class="sub"><a class="ext" href="https://www.thesandon.com/" target="_blank" rel="noopener">thesandon.com &rarr;</a></span>
       </div>
     </div>
     <div class="plan-row">
       <div class="time mono">3:00 PM</div>
       <div class="what">
-        <strong>Liverpool vs. Fulham <span class="status-chip locked">Locked in</span></strong>
+        <strong>Liverpool vs. Fulham</strong>
         <span class="sub">Anfield &middot; tickets sorted for all 16</span>
       </div>
     </div>
-
-    <div class="decision">
-      <div class="decision-head"><h3>After the match</h3><span class="status-chip open">Still open</span></div>
-      <p class="hint">Stay near the ground, or head back into town.</p>
-      <div class="options">
-        <div class="option">
-          <p class="venue">The Sandon, again</p>
-          <p class="desc">Stay put &mdash; food, matchday buzz, no travel needed.</p>
-          <div class="meta"><span>~&pound;12&ndash;18pp</span><span class="book">busy, get there early</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">Picante</p>
-          <p class="desc">Cains Brewery Village, Baltic Triangle &mdash; back in the city, Latin menu, built for big groups.</p>
-          <div class="meta"><span>~&pound;25&ndash;35pp</span><span class="book">call ahead</span></div>
-        </div>
-        <div class="option">
-          <p class="venue">Bem Brasil (if free)</p>
-          <p class="desc">Same as the Friday option, if it wasn't used already and everyone fancies seconds.</p>
-          <div class="meta"><span>~&pound;35&ndash;45pp</span><span class="book">email required</span></div>
-        </div>
+    <div class="plan-row">
+      <div class="time mono">Evening</div>
+      <div class="what">
+        <strong>Post-match plans</strong>
+        <span class="sub">TBD</span>
       </div>
-      <a class="vote-btn" href="https://chat.whatsapp.com/REPLACE-WITH-YOUR-GROUP-LINK">Vote in the group chat &rarr;</a>
     </div>
   </section>
 
@@ -538,31 +394,9 @@
     <div class="plan-row">
       <div class="time mono">Morning</div>
       <div class="what">
-        <strong>Breakfast <span class="status-chip open">Still open</span></strong>
+        <strong>Breakfast</strong>
         <span class="sub">Time and place not picked yet</span>
       </div>
-    </div>
-  </section>
-
-  <!-- COSTS -->
-  <section class="day" id="costs">
-    <div class="day-head">
-      <h2 class="display weekday">Expenses</h2>
-      <span class="datenum mono">costs so far</span>
-    </div>
-    <div class="scroll-x">
-      <table class="expenses">
-        <thead>
-          <tr><th>Item</th><th class="num">Amount</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>DP Hotel</td><td class="num mono">&pound;630.00</td></tr>
-          <tr><td>AirBnB</td><td class="num mono">&pound;3,892.82</td></tr>
-          <tr><td>Anfield (&times;16)</td><td class="num mono">&pound;8,306.00</td></tr>
-          <tr><td>Bloc Party (&times;4)</td><td class="num mono">&pound;130.00</td></tr>
-          <tr class="total"><th>Owed, roughly</th><td class="num mono">&pound;11,500</td></tr>
-        </tbody>
-      </table>
     </div>
   </section>
 
