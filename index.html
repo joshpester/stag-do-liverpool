@@ -189,74 +189,23 @@
     font-size: 14px;
   }
 
-  /* ---------- Decision blocks ---------- */
-  .decision {
-    margin-top: 22px;
-    padding: 16px 16px 18px;
+  /* ---------- Loose ideas (no decision needed) ---------- */
+  .plan-row .sub.lead {
+    display: block;
+    margin-bottom: 8px;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 6px 12px;
     background: var(--paper-raised);
     border: 1px solid var(--line);
-  }
-  .decision-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 4px;
-  }
-  .decision-head h3 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    font-size: 14.5px;
-    font-weight: 700;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-  .decision > .hint {
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    margin: 0 0 14px;
-  }
-
-  .options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .option {
-    border: 1px dashed var(--line);
-    padding: 12px 13px;
-    position: relative;
-  }
-  .option .venue {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    font-weight: 700;
-    font-size: 14.5px;
-    margin: 0;
-  }
-
-  a.vote-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--paper);
-    background: var(--open);
-    padding: 9px 14px;
-    border: 1px solid var(--open);
-  }
-  a.vote-btn:hover { opacity: 0.88; }
-  a.vote-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .vote-btn.pending {
-    color: var(--ink-soft);
-    background: transparent;
-    border: 1px dashed var(--line);
-    cursor: default;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -372,14 +321,17 @@
       <span class="datenum mono">11th</span>
     </div>
 
-    <div class="decision">
-      <div class="decision-head"><h3>Daytime</h3></div>
-      <p class="hint">Flexible plans for the day, people should feel free to do what they want. Some rough options are:</p>
-      <div class="options">
-        <div class="option"><p class="venue">Beatles tour</p></div>
-        <div class="option"><p class="venue">Hike</p></div>
-        <div class="option"><p class="venue">Explore the city</p></div>
-        <div class="option"><p class="venue">Beach</p></div>
+    <div class="plan-row">
+      <div class="time mono">Daytime</div>
+      <div class="what">
+        <strong>Flexible</strong>
+        <span class="sub lead">Do what you fancy &mdash; a few rough ideas:</span>
+        <div class="tag-row">
+          <span class="tag">Beatles tour</span>
+          <span class="tag">Hike</span>
+          <span class="tag">Explore the city</span>
+          <span class="tag">Beach</span>
+        </div>
       </div>
     </div>
 
