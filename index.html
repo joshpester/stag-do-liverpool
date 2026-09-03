@@ -208,6 +208,41 @@
     border: 1px solid var(--line);
   }
 
+  /* ---------- Crawl table ---------- */
+  .crawl-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 2px;
+  }
+  table.crawl-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  table.crawl-table th {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--ink);
+    white-space: nowrap;
+  }
+  table.crawl-table td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  table.crawl-table tr:last-child td { border-bottom: none; }
+  table.crawl-table td.pub { white-space: normal; font-weight: 600; }
+  table.crawl-table td.pub a { text-decoration: none; }
+  table.crawl-table td.pub a:hover { text-decoration: underline; }
+  table.crawl-table td.arrive { color: var(--locked); font-weight: 600; }
+  table.crawl-table td.walk { color: var(--ink-soft); }
+
   @media (prefers-reduced-motion: no-preference) {
     section.day { animation: rise 0.5s ease-out both; }
     section.day:nth-of-type(2) { animation-delay: 0.04s; }
@@ -305,10 +340,63 @@
       </div>
     </div>
     <div class="plan-row">
-      <div class="time mono">Daytime - Evening</div>
+      <div class="time mono">11:45 AM &ndash; late</div>
       <div class="what">
         <strong>Pub crawl</strong>
-        <span class="sub">Route TBD</span>
+        <span class="sub lead">Route locked in &mdash; being sorted ahead of time, not a group vote:</span>
+        <div class="crawl-table-wrap">
+          <table class="crawl-table">
+            <thead>
+              <tr>
+                <th>Pub</th>
+                <th>Arrive</th>
+                <th>Walk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pub"><a class="ext" href="https://www.facebook.com/maboylesalehouseandeatery/" target="_blank" rel="noopener">Ma Boyle's Alehouse &amp; Eatery</a></td>
+                <td class="mono arrive">11:45 AM</td>
+                <td class="mono walk">16 min</td>
+              </tr>
+              <tr>
+                <td class="pub"><a class="ext" href="https://thealchemistbars.com/venues/liverpool/brunswick-st/" target="_blank" rel="noopener">The Alchemist</a></td>
+                <td class="mono arrive">12:35 PM</td>
+                <td class="mono walk">4 min</td>
+              </tr>
+              <tr>
+                <td class="pub"><a class="ext" href="https://www.albertsschloss.com/location/liverpool/" target="_blank" rel="noopener">Albert's Schloss</a></td>
+                <td class="mono arrive">1:30 PM</td>
+                <td class="mono walk">12 min</td>
+              </tr>
+              <tr>
+                <td class="pub"><a class="ext" href="https://www.pilgrimpub.co.uk/" target="_blank" rel="noopener">The Pilgrim</a></td>
+                <td class="mono arrive">2:45 PM</td>
+                <td class="mono walk">13 min</td>
+              </tr>
+              <tr>
+                <td class="pub"><a class="ext" href="https://thegrapesliverpool.co.uk/" target="_blank" rel="noopener">The Grapes</a></td>
+                <td class="mono arrive">3:35 PM</td>
+                <td class="mono walk">5 min</td>
+              </tr>
+              <tr>
+                <td class="pub"><a class="ext" href="https://stpeterstavern.co.uk/" target="_blank" rel="noopener">St Peter's Tavern</a></td>
+                <td class="mono arrive">4:30 PM</td>
+                <td class="mono walk">7 min</td>
+              </tr>
+              <tr>
+                <td class="pub"><a class="ext" href="https://www.lafincaeivissa.co.uk/" target="_blank" rel="noopener">La Finca Eivissa</a></td>
+                <td class="mono arrive">5:15 PM</td>
+                <td class="mono walk">1 min</td>
+              </tr>
+              <tr>
+                <td class="pub"><a class="ext" href="https://elbandito.co.uk/" target="_blank" rel="noopener">El Bandito</a></td>
+                <td class="mono arrive">6:00 PM</td>
+                <td class="mono walk">3 min</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
